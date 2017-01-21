@@ -1,5 +1,16 @@
 package com.zviproject.patterns;
 
-public class Singleton {
+public final class Singleton {
+	private static Singleton instance = null;
 
+	private Singleton() {
+	}
+
+	public static synchronized Singleton getInstance() {
+		if (instance == null) {
+			instance = new Singleton();
+		}
+
+		return instance;
+	}
 }
